@@ -1,0 +1,9 @@
+{
+    "parent-dir": ".",
+    "vars": [],
+    "pages": [
+        "/index.html",
+        "/goto.html"
+    ],
+    "line-end": "\n"
+}

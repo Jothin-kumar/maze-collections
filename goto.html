@@ -1,9 +1,13 @@
-<script>
-    async function main() {
-        const usp = new URLSearchParams(window.location.search);
-        const id = usp.get('id');
-        const r = await fetch(`/maze/${id}.txt`);
-        window.location.href = `https://a-maze.jothin.tech/?maze-data=${await r.text()}`;
-    }
-    main()
-</script>
+<html>
+    <head>
+        <script>
+            async function main() {
+                const usp = new URLSearchParams(window.location.search);
+                const id = usp.get('id');
+                const r = await fetch(`/maze/${id}.txt`);
+                window.location.href = `https://a-maze.jothin.tech/?maze-data=${await r.text()}&share-url=mazes.jothin.tech/@${id}`;
+            }
+            main()
+        </script>
+    </head>
+</html>
