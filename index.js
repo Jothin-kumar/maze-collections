@@ -1,6 +1,8 @@
-function bodyLoaded() {
+async function bodyLoaded() {
     const main = document.getElementById('main');
-    for (let i = 1; i < 51; i++) {
+    const r = await fetch('/maze/max.txt');
+    const max = parseInt(await r.text());
+    for (let i = 1; i < max+1; i++) {
         main.appendChild(newMaze(i));
     }
 }
