@@ -1,0 +1,44 @@
+body {
+    background-color: black;
+    color: white;
+    user-select: none;
+}
+#main {
+    border: goldenrod 2px solid;
+    border-radius: 10px;
+    width: 90vw;
+    height: 90vh;
+    padding: 2.5vh 2.5vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    overflow-y: scroll;
+    text-align: center;
+    justify-content: center;
+}
+#main::-webkit-scrollbar {
+    display: none;
+}
+.maze {
+    display: inline-block;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 150, 200, .1);
+    border: rgba(255, 150, 200, .2) 1px solid;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.maze:visited {
+    background-color: rgba(150, 255, 200, .1);
+    border: rgba(150, 255, 200, .2) 1px solid;
+}
+.maze:hover {
+    background-color: rgba(255, 150, 200, .2);
+}
+.maze:visited:hover {
+    background-color: rgba(150, 255, 200, .2);
+}
