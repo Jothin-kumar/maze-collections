@@ -19,3 +19,6 @@ printf "maze data ✅\n\n"
 
 cp _redirects build-output/_redirects
 printf "_redirects ✅\n\n"
+
+cp robots.txt build-output/robots.txt
+printf "robots.txt ✅\n\n"
