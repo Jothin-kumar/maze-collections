@@ -2,7 +2,6 @@ body {
     background-color: black;
     color: white;
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
 }
 #main {
     border: goldenrod 2px solid;
