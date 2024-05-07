@@ -11,8 +11,8 @@
                 const id = usp.get('id');
                 const r = await fetch(`/maze/${id}.txt`);
                 const maxR = await fetch('/maze/max.txt');
-                const max = parseInt(await r.text());
-                if (1 <= parseInt(id) && parseInt(id) <= max) {
+                const maxID = parseInt(await maxR.text());
+                if (1 <= parseInt(id) && parseInt(id) <= maxID) {
                     window.location.href = `https://a-maze.jothin.tech/2d/?maze-data=${await r.text()}&share-url=mazes.jothin.tech/@${id}`;
                 }
                 else {
