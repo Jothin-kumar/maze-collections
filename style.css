@@ -31,6 +31,16 @@ body {
     font-size: x-large;
     cursor: pointer;
 }
+#lvl-chooser > li:hover {
+    background-color: rgba(0, 128, 0, 0.5);
+    border: green 1px solid;
+    transition: background-color 1s, border 1s;
+}
+.current-lvl, .current-lvl:hover {
+    background-color: greenyellow !important;
+    border: greenyellow 1px solid !important;
+    color: black;
+}
 #main {
     border: goldenrod 2px solid;
     border-radius: 10px;
