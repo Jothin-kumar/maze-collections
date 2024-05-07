@@ -27,6 +27,7 @@ body {
     justify-content: center;
     padding: 5px 0;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
     cursor: pointer;
 }
 #main {
@@ -49,19 +50,22 @@ body {
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(255, 150, 200, .1);
-    border: rgba(255, 150, 200, .2) 1px solid;
+    background-color: black;
+    border: olivedrab 1px solid;
     color: white;
     text-decoration: none;
     cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .maze:visited {
-    background-color: rgba(150, 255, 200, .1);
-    border: rgba(150, 255, 200, .2) 1px solid;
+    background-color: darkgreen;
+    border: darkgreen 1px solid;
 }
 .maze:hover {
-    background-color: rgba(255, 150, 200, .2);
+    background-color: olivedrab;
+    color: black;
+    font-weight: bold;
 }
 .maze:visited:hover {
-    background-color: rgba(150, 255, 200, .2);
+    background-color: green;
 }
