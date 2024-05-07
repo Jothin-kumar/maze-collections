@@ -1,11 +1,11 @@
 const usp = new URLSearchParams(window.location.search);
-const level = usp.get('level') || 'easy';
+const level = usp.get('level') || 'medium';
 
 async function bodyLoaded() {
     document.getElementById('lvl-' + level).classList.add('current-lvl');
     const main = document.getElementById('main');
     const msgElem = document.getElementById('main-msg');
-    const r = await fetch('/maze/max.txt');
+    const r = await fetch(`/maze/${level}/max.txt`);
     if (!r.ok) {
         msgElem.innerText = 'Failed to load mazes';
         msgElem.style.color = 'red';
@@ -23,7 +23,7 @@ function newMaze(mazeId) {
     const elem = document.createElement('a');
     elem.className = 'maze';
     elem.innerText = mazeId.toString().padStart(3, '0');
-    elem.href = '@' + mazeId;
+    elem.href = level === "medium" ? `@${mazeId}`: `/${level}/@${mazeId}`;
     return elem;
 }
 
