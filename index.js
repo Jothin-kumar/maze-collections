@@ -1,4 +1,8 @@
+const usp = new URLSearchParams(window.location.search);
+const level = usp.get('level') || 'easy';
+
 async function bodyLoaded() {
+    document.getElementById('lvl-' + level).classList.add('current-lvl');
     const main = document.getElementById('main');
     const r = await fetch('/maze/max.txt');
     const max = parseInt(await r.text());
@@ -13,4 +17,10 @@ function newMaze(mazeId) {
     elem.innerText = mazeId.toString().padStart(3, '0');
     elem.href = '@' + mazeId;
     return elem;
+}
+
+function toLevel(elem) {
+    const toLevel = elem.id === "lvl-easy" ? "easy" : elem.id === "lvl-medium" ? "medium" : "hard";
+    usp.set('level', toLevel);
+    window.location.search = usp.toString();
 }
