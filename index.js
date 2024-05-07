@@ -10,7 +10,7 @@ async function bodyLoaded() {
 function newMaze(mazeId) {
     const elem = document.createElement('a');
     elem.className = 'maze';
-    elem.innerText = mazeId;
+    elem.innerText = mazeId.toString().padStart(3, '0');
     elem.href = '@' + mazeId;
     return elem;
 }
