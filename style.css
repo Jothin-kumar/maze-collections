@@ -70,3 +70,25 @@ body {
 .maze:visited:hover {
     background-color: green;
 }
+#references {
+    width: 90vw;
+    height: 5vh;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: small;
+}
+.reference {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.reference-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
