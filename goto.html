@@ -3,8 +3,36 @@
         <style>
             body {
                 background-color: black;
+                user-select: none;
+            }
+            #invalid-maze {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                text-align: center;
+
+                display: none;
+            }
+            #invalid-maze > p {
+                color: red;
+            }
+            #invalid-maze > a {
+                color: white;
+                text-decoration: none;
+                margin-top: 10px;
+                border: olive 1px solid;
+                padding: 10px;
+                border-radius: 10px;
             }
         </style>
+    </head>
+    <body>
+        <div id="invalid-maze">
+            <p>Invalid maze ID</p>
+            <a href="https://mazes.jothin.tech">Visit the collection</a>
+        </div>
         <script>
             async function main() {
                 const usp = new URLSearchParams(window.location.search);
@@ -16,10 +44,10 @@
                     window.location.href = `https://a-maze.jothin.tech/2d/?maze-data=${await r.text()}&share-url=mazes.jothin.tech/@${id}`;
                 }
                 else {
-                    window.alert('Invalid maze ID');
+                    document.getElementById('invalid-maze').style.display = 'block';
                 }
             }
             main()
         </script>
-    </head>
+    </body>
 </html>
