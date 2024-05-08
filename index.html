@@ -15,6 +15,22 @@
     </ul>
     <div id="main">
         <p id="main-msg">Loading... Please Wait</p>
+        <p id="no-script-msg" style="display: none;">Enable JavaScript and reload the page</p>
+        <noscript>
+            <style>
+                #main-msg {
+                    display: none;
+                }
+                #no-script-msg {
+                    display: block !important;
+                    color: red;
+                    font-family: 'Courier New', Courier, monospace;
+                }
+                #lvl-chooser, #references {
+                    opacity: .1;
+                }
+            </style>
+        </noscript>
     </div>
     <div id="references">
         <div class="reference">
