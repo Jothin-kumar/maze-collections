@@ -8,7 +8,7 @@ else
 fi
 printf "git (build) ✅\n\n"
 
-python3 make.py
+python3 py/make.py
 printf "make.py ✅\n\n"
 
 python3 build/build.py
@@ -17,8 +17,8 @@ printf "build.py ✅\n\n"
 cp -r maze build-output/maze
 printf "maze data ✅\n\n"
 
-cp _redirects build-output/_redirects
+cp root/_redirects build-output/_redirects
 printf "_redirects ✅\n\n"
 
-cp robots.txt build-output/robots.txt
+cp root/robots.txt build-output/robots.txt
 printf "robots.txt ✅\n\n"
