@@ -5,33 +5,34 @@
                 background-color: black;
                 user-select: none;
             }
-            #invalid-maze {
+            #main {
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 color: white;
                 text-align: center;
-
+                font-size: large;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            #invalid-maze {
+                color: red;
                 display: none;
             }
-            #invalid-maze > p {
-                color: red;
-            }
-            #invalid-maze > a {
+            #main > a {
                 color: white;
                 text-decoration: none;
                 margin-top: 10px;
-                border: olive 1px solid;
+                border: olive 2px solid;
                 padding: 10px;
                 border-radius: 10px;
             }
         </style>
     </head>
     <body>
-        <div id="invalid-maze">
-            <p>Invalid maze ID</p>
-            <a href="https://mazes.jothin.tech">Visit the collection</a>
+        <div id="main">
+            <p id="invalid-maze">Invalid maze ID</p>
+            <a href="https://mazes.jothin.tech">Back to the collection</a>
         </div>
         <script>
             async function main() {
@@ -46,7 +47,7 @@
                     window.location.href = `https://a-maze.jothin.tech/2d/?level=${level}&maze-data=${await r.text()}&share-url=mazes.jothin.tech/${shareSlug}`;
                 }
                 else {
-                    document.getElementById('invalid-maze').style.display = 'block';
+                    document.getElementById('main').style.display = 'block';
                 }
             }
             main()
