@@ -1,4 +1,6 @@
 ## [`repair-maze.py`](https://github.com/Jothin-kumar/maze-collections/blob/main/py/repair-maze.py)
+`Used in Build Process`
+
 Fixes the following files:
  - `/maze-data/easy.txt`
  - `/maze-data/medium.txt`
@@ -20,7 +22,7 @@ jeArjfjgkgkhkijiiihigigjgkglflelemeneoepfpgpgohohninjnjmkmlmlnmnnnonoopoqoqpqqrq
 ```
 
 ## [`make.py`](https://github.com/Jothin-kumar/maze-collections/blob/main/py/make.py)
- - Used in build process
+`Used in build process`
  - Creates the following file structure:
  ```
  /maze
