@@ -32,6 +32,7 @@
     <body>
         <div id="main">
             <p id="invalid-maze">Invalid maze ID</p>
+            <p id="loading">Loading, please wait</p>
             <a href="https://mazes.jothin.tech">Back to the collection</a>
         </div>
         <script>
@@ -47,7 +48,8 @@
                     window.location.href = `https://a-maze.jothin.tech/2d/?level=${level}&maze-data=${await r.text()}&share-url=mazes.jothin.tech/${shareSlug}`;
                 }
                 else {
-                    document.getElementById('main').style.display = 'block';
+                    document.getElementById('invalid-maze').style.display = 'block';
+                    document.getElementById('loading').style.display = 'none';
                 }
             }
             main()
