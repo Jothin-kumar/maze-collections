@@ -2,7 +2,12 @@ encodeChrs = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!._$
 decodeToNum = lambda a: encodeChrs.index(a) + 1
 decodeToCoords = lambda alpha: (decodeToNum(alpha[0]), decodeToNum(alpha[1]))
 
-def is_valid(data: str) -> bool:
+def is_valid(data: str, level: str) -> bool:
+    if level == "easy":
+        encodeChrs = encodeChrs[:25]
+    elif level == "medium":
+        encodeChrs = encodeChrs[:49]
+
 
     if len(data) < 6:
         return False

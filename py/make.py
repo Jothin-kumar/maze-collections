@@ -12,7 +12,7 @@ for lvl in ['easy', 'medium', 'hard']:
         for i, line in enumerate(f.readlines()):
             with open(f"maze/{lvl}/{i+1}.txt", "w") as f2:
                 line = line.removesuffix("\n")
-                assert maze_is_valid(line)
+                assert maze_is_valid(line, lvl)
                 f2.write(line)
 
     with open(f"maze/{lvl}/max.txt", "w") as f:
