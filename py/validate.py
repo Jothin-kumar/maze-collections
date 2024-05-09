@@ -2,11 +2,17 @@ encodeChrs = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!._$
 decodeToNum = lambda a: encodeChrs.index(a) + 1
 decodeToCoords = lambda alpha: (decodeToNum(alpha[0]), decodeToNum(alpha[1]))
 
-def is_valid(data: str) -> bool:
+lvl_size = {
+    "easy": 25,
+    "medium": 49,
+    "hard": 69,
+}
+
+def is_valid(data: str, level: str) -> bool:
 
     if len(data) < 6:
         return False
-    if [c for c in data if c not in encodeChrs] != ["-", "-"]:
+    if [c for c in data if c not in encodeChrs[:lvl_size[level]]] != ["-", "-"]:
         return False
 
     path = [
