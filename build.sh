@@ -10,6 +10,7 @@ printf "git (build) ✅\n\n"
 
 python3 py/repair-maze.py
 printf "repair-maze.py ✅\n\n"
+set -e
 python3 py/make.py
 printf "make.py ✅\n\n"
 
