@@ -30,5 +30,8 @@ def is_valid(data: str, level: str) -> bool:
     for i in range(len(path)-1):
         if abs(path[i][0] - path[i+1][0]) + abs(path[i][1] - path[i+1][1]) != 1:
             return False
-    
+
+    if len(set(path)) != len(path):  # Check for duplicates
+        return False
+
     return True
