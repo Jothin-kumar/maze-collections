@@ -22,10 +22,8 @@ async function bodyLoaded() {
 function newMaze(mazeId, rating) {
     const elem = document.createElement('a');
     elem.className = 'maze';
-    elem.innerText = mazeId.toString().padStart(3, '0');
+    elem.innerHTML = `${mazeId.toString().padStart(3, '0')}<br><span class="rating">${rating}</span>`;
     elem.href = level === "medium" ? `@${mazeId}`: `/${level}/@${mazeId}`;
-    elem.setAttribute('tooltip', `Rating: ${rating}`);
-    enableTooltip(elem);
     return elem;
 }
 
