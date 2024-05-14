@@ -1,5 +1,5 @@
 from os import mkdir, path
-from validate import is_valid as maze_is_valid
+from parse_maze import parse as parse_maze
 
 if not path.exists('maze'):
     mkdir('maze')
@@ -13,8 +13,8 @@ for lvl in ['easy', 'medium', 'hard']:
         assert len(lines) == len(set(lines)), f"Duplicate mazes in {lvl}.txt"
         for i, line in enumerate(lines):
             with open(f"maze/{lvl}/{i+1}.txt", "w") as f2:
-                assert maze_is_valid(line, lvl), f"Invalid maze: {i+1} in {lvl} level"
-                f2.write(line)
+                data = parse_maze(line, lvl, i+1)
+                f2.write(data)
 
     with open(f"maze/{lvl}/max.txt", "w") as f:
         f.write(str(i+1))
