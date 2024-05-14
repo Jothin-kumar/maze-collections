@@ -12,7 +12,7 @@ for lvl in ['easy', 'medium', 'hard']:
         lines = [s.removesuffix("\n") for s in f.readlines()]
         assert len(lines) == len(set(lines)), f"Duplicate mazes in {lvl}.txt"
         for i, line in enumerate(lines):
-            with open(f"maze/{lvl}/{i+1}.txt", "w") as f2:
+            with open(f"maze/{lvl}/{i+1}.json", "w") as f2:
                 data = parse_maze(line, lvl, i+1)
                 f2.write(data)
 
