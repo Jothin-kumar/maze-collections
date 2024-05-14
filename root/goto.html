@@ -45,7 +45,7 @@
                 const maxID = parseInt(await maxR.text());
                 if (1 <= parseInt(id) && parseInt(id) <= maxID) {
                     const shareSlug = level === "medium" ? `@${id}`: `${level}/@${id}`;
-                    window.location.href = `https://a-maze.jothin.tech/2d/?level=${level}&maze-data=${await r.json()["maze-data"]}&share-url=mazes.jothin.tech/${shareSlug}`;
+                    window.location.href = `https://a-maze.jothin.tech/2d/?level=${level}&maze-data=${(await r.json())["maze-data"]}&share-url=mazes.jothin.tech/${shareSlug}`;
                 }
                 else {
                     document.getElementById('invalid-maze').style.display = 'block';
