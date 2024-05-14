@@ -29,9 +29,6 @@ Average rating: {round(sum(ratings)/len(ratings), 2)}
 Minimum rating: {min_rating} <Maze(s) with this rating: {', '.join([f"/{lvl}/@{i+1}" for i, r in enumerate(ratings) if r == min_rating])}>
 Maximum rating: {max_rating} <Maze(s) with this rating: {', '.join([f"/{lvl}/@{i+1}" for i, r in enumerate(ratings) if r == max_rating])}>
 """)
-
-    with open(f"maze/{lvl}/max.txt", "w") as f:
-        f.write(str(i+1))
     
     with open(f"maze/{lvl}/ratings.txt", "w") as f:
         f.write("\n".join(map(str, ratings)))

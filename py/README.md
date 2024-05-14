@@ -29,19 +29,16 @@ jeArjfjgkgkhkijiiihigigjgkglflelemeneoepfpgpgohohninjnjmkmlmlnmnnnonoopoqoqpqqrq
  /maze
  +--/easy
     +--/ratings.txt
-    +--/max.txt
     +--/1.json
     +--/2.json
     +--etc...
  +--/medium
     +--/ratings.txt
-    +--/max.txt
     +--/1.json
     +--/2.json
     +--etc...
  +--/hard
     +--/ratings.txt
-    +--/max.txt
     +--/1.json
     +--/2.json
     +--etc...
