@@ -10,7 +10,7 @@
     <meta name="og:description" content="A curated list of mazes, for A-Maze">
     <meta name="og:image" content="https://jothin.tech/favicon.webp">
 </head>
-<body onload="bodyLoaded()">
+<body onload="bodyLoaded(); tooltipBodyLoaded();">
     <ul id="lvl-chooser">
         <li onclick="toLevel(this)" id="lvl-easy">Easy</li>
         <li onclick="toLevel(this)" id="lvl-medium">Medium</li>
@@ -45,5 +45,8 @@
             <p>Visited</p>
         </div>
     </div>
+    <a class="maze" id="format-maze">
+        Maze id<br><span class="rating">rating</span>
+    </a>
 </body>
 </html>

@@ -40,12 +40,12 @@
                 const usp = new URLSearchParams(window.location.search);
                 const level = usp.get('level') || 'medium';
                 const id = usp.get('id');
-                const r = await fetch(`/maze/${level}/${id}.txt`);
+                const r = await fetch(`/maze/${level}/${id}.json`);
                 const maxR = await fetch(`/maze/${level}/max.txt`);
                 const maxID = parseInt(await maxR.text());
                 if (1 <= parseInt(id) && parseInt(id) <= maxID) {
                     const shareSlug = level === "medium" ? `@${id}`: `${level}/@${id}`;
-                    window.location.href = `https://a-maze.jothin.tech/2d/?level=${level}&maze-data=${await r.text()}&share-url=mazes.jothin.tech/${shareSlug}`;
+                    window.location.href = `https://a-maze.jothin.tech/2d/?level=${level}&maze-data=${(await r.json())["maze-data"]}&share-url=mazes.jothin.tech/${shareSlug}`;
                 }
                 else {
                     document.getElementById('invalid-maze').style.display = 'block';

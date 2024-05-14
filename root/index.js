@@ -5,24 +5,27 @@ async function bodyLoaded() {
     document.getElementById('lvl-' + level).classList.add('current-lvl');
     const main = document.getElementById('main');
     const msgElem = document.getElementById('main-msg');
-    const r = await fetch(`/maze/${level}/max.txt`);
-    if (!r.ok) {
+    const ratingsRequest = await fetch(`/maze/${level}/ratings.txt`);
+    if (!ratingsRequest.ok) {
         msgElem.innerText = 'Failed to load mazes';
         msgElem.style.color = 'red';
         return;
     }
-    const max = parseInt(await r.text());
-    for (let i = 1; i < max+1; i++) {
-        main.appendChild(newMaze(i));
+    const ratings = (await ratingsRequest.text()).split('\n').map(x => parseFloat(x).toFixed(2));
+    const mazes = [];
+    for (let i = 0; i < ratings.length; i++) {
+        mazes.push([newMaze(i+1, ratings[i]), i+1, ratings[i]]) // Format: [mazeElem, id, rating]
     }
+    mazes.sort((a, b) => a[2] - b[2]);
+    mazes.forEach(maze => main.appendChild(maze[0]));
 
     msgElem.style.display = 'none';
 }
 
-function newMaze(mazeId) {
+function newMaze(mazeId, rating) {
     const elem = document.createElement('a');
     elem.className = 'maze';
-    elem.innerText = mazeId.toString().padStart(3, '0');
+    elem.innerHTML = `${mazeId.toString().padStart(3, '0')}<br><span class="rating">${rating}</span>`;
     elem.href = level === "medium" ? `@${mazeId}`: `/${level}/@${mazeId}`;
     return elem;
 }
