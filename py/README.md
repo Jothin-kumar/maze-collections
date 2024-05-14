@@ -25,19 +25,26 @@ jeArjfjgkgkhkijiiihigigjgkglflelemeneoepfpgpgohohninjnjmkmlmlnmnnnonoopoqoqpqqrq
 `Used in build process`
  - Creates the following file structure:
  ```
+ /stats.txt
  /maze
  +--/easy
     +--/max.txt
-    +--/1.txt
-    +--/2.txt
+    +--/1.json
+    +--/2.json
     +--etc...
  +--/medium
     +--/max.txt
-    +--/1.txt
-    +--/2.txt
+    +--/1.json
+    +--/2.json
     +--etc...
  +--/hard
     +--/max.txt
-    +--/1.txt
-    +--/2.txt
+    +--/1.json
+    +--/2.json
     +--etc...
+```
+
+## [`parse_maze.py`](https://github.com/Jothin-kumar/maze-collections/blob/main/py/parse_maze.py)
+`Used in build process`
+ - Validates maze data
+ - Calculates rating for each maze
