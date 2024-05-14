@@ -21,7 +21,7 @@ for lvl in ['easy', 'medium', 'hard']:
     ratings = [d["rating"] for d in datas]
     min_rating = min(ratings)
     max_rating = max(ratings)
-    with open(f"maze/stats.txt", "a+") as f:
+    with open(f"stats.txt", "a+") as f:
         f.write(f"""
 Level: {lvl}
 Mazes count: {len(lines)}

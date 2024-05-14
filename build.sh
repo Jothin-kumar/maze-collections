@@ -20,6 +20,9 @@ printf "build.py ✅\n\n"
 cp -r maze build-output/maze
 printf "maze data ✅\n\n"
 
+cp stats.txt build-output/stats.txt
+printf "stats.txt ✅\n\n"
+
 cp root/_redirects build-output/_redirects
 printf "_redirects ✅\n\n"
 
