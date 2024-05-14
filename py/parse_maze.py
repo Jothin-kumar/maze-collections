@@ -40,7 +40,29 @@ def parse(data: str, level: str, maze_num) -> bool:
         raise ValueError(error_msg_prefix, "Repetition found in correct path")
 
     # Now, the maze data is valid
+    hidden_lines_coords = []
+    for i in range(0, len(data[1]), 2):
+        hidden_lines_coords.append((
+            2*decodeToNum(data[1][i])+1,
+            2*decodeToNum(data[1][i+1])
+        ))
+    for i in range(0, len(data[2]), 2):
+        hidden_lines_coords.append((
+            2*decodeToNum(data[2][i]),
+            2*decodeToNum(data[2][i+1])+1
+        ))
+    get_movable_neighbors = lambda x, y: [(x+x_, y+y_) for x_, y_ in [(1, 0), (-1, 0), (0, 1), (0, -1)] if (2*x+x_, 2*y+y_) in hidden_lines_coords]
     rating = 0
+    for x, y in path:
+        rating += len(get_movable_neighbors(x, y)) - 2
+    rating *= len(hidden_lines_coords)
+    if level == "easy":
+        rating /= 1250
+    elif level == "medium":
+        rating /= 4802
+    elif level == "hard":
+        rating /= 9522
+    rating = round(rating, 2)
 
     return dumps({
         "maze-data": data_original,
