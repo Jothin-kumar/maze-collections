@@ -12,6 +12,7 @@ lvl_size = {
 
 def parse(data: str, level: str, maze_num) -> bool:
 
+    data_original = data
     error_msg_prefix = f"Error in maze data {maze_num} of level {level}: "
 
     if len(data) < 6:
@@ -42,6 +43,6 @@ def parse(data: str, level: str, maze_num) -> bool:
     rating = 0
 
     return dumps({
-        "maze-data": data,
+        "maze-data": data_original,
         "rating": rating
     })
