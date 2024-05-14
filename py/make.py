@@ -24,8 +24,8 @@ for lvl in ['easy', 'medium', 'hard']:
     with open(f"maze/stats.txt", "a+") as f:
         f.write(f"""
 Level: {lvl}
-Mazes: {len(lines)}
-Average rating: {sum(ratings)/len(ratings)}
+Mazes count: {len(lines)}
+Average rating: {round(sum(ratings)/len(ratings), 2)}
 Minimum rating: {min_rating} [Maze(s): {', '.join([str(i+1) for i, r in enumerate(ratings) if r == min_rating])}]
 Maximum rating: {max_rating} [Maze(s): {', '.join([str(i+1) for i, r in enumerate(ratings) if r == max_rating])}]
 """)
