@@ -12,9 +12,12 @@ async function bodyLoaded() {
         return;
     }
     const ratings = (await ratingsRequest.text()).split('\n').map(x => parseFloat(x).toFixed(2));
+    const mazes = [];
     for (let i = 0; i < ratings.length; i++) {
-        main.appendChild(newMaze(i+1, ratings[i]));
+        mazes.push([newMaze(i+1, ratings[i]), i+1, ratings[i]]) // Format: [mazeElem, id, rating]
     }
+    mazes.sort((a, b) => a[2] - b[2]);
+    mazes.forEach(maze => main.appendChild(maze[0]));
 
     msgElem.style.display = 'none';
 }
