@@ -26,8 +26,8 @@ for lvl in ['easy', 'medium', 'hard']:
 Level: {lvl}
 Mazes: {len(lines)}
 Average rating: {sum(ratings)/len(ratings)}
-Minimum rating: {min_rating} [Maze(s): {', '.join([i+1 for i, r in enumerate(ratings) if r == min_rating])}]
-Maximum rating: {max_rating} [Maze(s): {', '.join([i+1 for i, r in enumerate(ratings) if r == max_rating])}]
+Minimum rating: {min_rating} [Maze(s): {', '.join([str(i+1) for i, r in enumerate(ratings) if r == min_rating])}]
+Maximum rating: {max_rating} [Maze(s): {', '.join([str(i+1) for i, r in enumerate(ratings) if r == max_rating])}]
 """)
 
     with open(f"maze/{lvl}/max.txt", "w") as f:
