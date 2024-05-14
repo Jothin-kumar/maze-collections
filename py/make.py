@@ -32,3 +32,6 @@ Maximum rating: {max_rating} <Maze(s) with this rating: {', '.join([f"/{lvl}/@{i
 
     with open(f"maze/{lvl}/max.txt", "w") as f:
         f.write(str(i+1))
+    
+    with open(f"maze/{lvl}/ratings.txt", "w") as f:
+        f.write("\n".join(map(str, ratings)))
