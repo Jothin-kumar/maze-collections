@@ -20,7 +20,6 @@ for lvl in ['easy', 'medium', 'hard']:
             if path.exists(file_name):
                 with open(file_name, "r") as f2:
                     data = f2.read()
-                continue
             else:
                 with open(file_name, "w") as f2:
                     data = parse_maze(line, lvl, i+1)
