@@ -16,3 +16,21 @@ Mazes count: 69
 Average rating: 99645.2
 Minimum rating: 79518 <Maze(s) with this rating: /hard/@69>
 Maximum rating: 122811 <Maze(s) with this rating: /hard/@55>
+
+Level: easy
+Mazes count: 69
+Average rating: 34826.09
+Minimum rating: 22000 <Maze(s) with this rating: /easy/@1>
+Maximum rating: 49000 <Maze(s) with this rating: /easy/@30>
+
+Level: medium
+Mazes count: 69
+Average rating: 78655.59
+Minimum rating: 61690 <Maze(s) with this rating: /medium/@47>
+Maximum rating: 91731 <Maze(s) with this rating: /medium/@15>
+
+Level: hard
+Mazes count: 69
+Average rating: 99645.2
+Minimum rating: 79518 <Maze(s) with this rating: /hard/@69>
+Maximum rating: 122811 <Maze(s) with this rating: /hard/@55>
