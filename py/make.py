@@ -10,6 +10,7 @@ if not path.exists('maze'):
 
 for lvl in ['easy', 'medium', 'hard']:
     datas = []
+    print("============================================================\n")
     print(f"Starting level - {lvl}")
     with open(f"maze-data/{lvl}.txt") as f:
         lines = [s.removesuffix("\n") for s in f.readlines()]
@@ -37,5 +38,5 @@ Maximum rating: {max_rating} <Maze(s) with this rating: {', '.join([f"/{lvl}/@{i
         f.write("\n".join(map(str, ratings)))
     print(f"Wrote ratings for level - {lvl}")
 
-    print(f"Level - {lvl} completed", end="\n"*5)
+    print(f"Level - {lvl} completed", end="============================================================\n")
 print("All mazes completed")
