@@ -11,7 +11,7 @@ async function bodyLoaded() {
         msgElem.style.color = 'red';
         return;
     }
-    const ratings = (await ratingsRequest.text()).split('\n').map(x => parseFloat(x).toFixed(2));
+    const ratings = (await ratingsRequest.text()).split('\n').map(x => parseInt(x));
     const mazes = [];
     for (let i = 0; i < ratings.length; i++) {
         mazes.push([newMaze(i+1, ratings[i]), i+1, ratings[i]]) // Format: [mazeElem, id, rating]

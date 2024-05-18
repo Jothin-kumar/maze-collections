@@ -86,7 +86,7 @@ body {
 }
 .rating {
     color: gray;
-    font-size: smaller;
+    font-size: small;
 }
 .maze:hover > .rating {
     opacity: 0;
