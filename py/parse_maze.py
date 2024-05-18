@@ -76,7 +76,8 @@ def parse(data: str, level: str, maze_num) -> bool:
         rating /= 2401
     elif level == "hard":
         rating /= 4761
-    rating = round(rating, 2)
+    rating *= 1000
+    rating = int(rating)
 
     return dumps({
         "maze-data": data_original,
