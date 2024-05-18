@@ -55,13 +55,26 @@ def parse(data: str, level: str, maze_num) -> bool:
     rating = 0
     for x, y in path:
         rating += len(get_movable_neighbors(x, y)) - 2
-    rating *= len(hidden_lines_coords)
+    
+    accepted_squares = path.copy()
+    def connect_connectable_squares():
+        connectables = []
+        for sq in accepted_squares:
+            for neighbour_sq in get_movable_neighbors(*sq):
+                if neighbour_sq not in connectables and neighbour_sq not in accepted_squares:
+                    connectables.append(neighbour_sq)
+        return len(connectables) > 0
+    r = connect_connectable_squares()
+    while r:
+        r = connect_connectable_squares()
+    rating *= len(accepted_squares)
+
     if level == "easy":
-        rating /= 1250
+        rating /= 625
     elif level == "medium":
-        rating /= 4802
+        rating /= 2401
     elif level == "hard":
-        rating /= 9522
+        rating /= 4761
     rating = round(rating, 2)
 
     return dumps({
