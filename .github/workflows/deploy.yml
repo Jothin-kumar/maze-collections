@@ -29,6 +29,7 @@ jobs:
           branch: main
 
       - name: Git Commit
+        continue-on-error: true
         run: |
           git config --local user.name "Maze Data Validator & Rating Calculator [bot]"
           git config --local user.email ""
