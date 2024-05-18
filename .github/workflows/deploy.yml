@@ -27,3 +27,11 @@ jobs:
           projectName: maze-collections
           directory: build-output
           branch: main
+
+      - name: Git Commit
+        run: |
+          git config --local user.name "Maze Data Validator & Rating Calculator [bot]"
+          git config --local user.email ""
+          git add --all
+          git commit -m "Maze Data & Rating Update"
+          git push origin main
