@@ -63,6 +63,7 @@ def parse(data: str, level: str, maze_num) -> bool:
             for neighbour_sq in get_movable_neighbors(*sq):
                 if neighbour_sq not in connectables and neighbour_sq not in accepted_squares:
                     connectables.append(neighbour_sq)
+        accepted_squares.extend(connectables)
         return len(connectables) > 0
     r = connect_connectable_squares()
     while r:
@@ -81,3 +82,9 @@ def parse(data: str, level: str, maze_num) -> bool:
         "maze-data": data_original,
         "rating": rating
     })
+
+print(
+    parse(
+        "pjexqjrjrksksltlulvlwlwkwjxjxixhyhygyfyeydycxcwcwdvdveueufugtgsgrgrfqfpfofogohoininjnknlmlmmlmlnknjnjojpjqkqkrlrlsltlukujuiuithtgtgufueuetdtctcsbsasataububvcvdvdwew-acadafahaiakanarasatauaybbbcbdbfbgbhbkblbmbobqbsbvbwbycacecfcgcicjclcocqctcvcydadcdfdhdkdldrdsdtdwecedeeeiekelemeoeqeueveyfafcfefgfhfjfmfnfqfsfufvfygagbgdgfghgiglgmgtgxhahchdhehhhihjhlhmhohqhshthuhvhxhyiaibieifiiijiliqiuixiyjajfjijkjljnjpjqjrjtjujwjxkakbkckdkfkgkhkjklknkrksktkukvkwkxlalblclflglhljlklmlqlrlslulvlwlxlymambmdmgmlmnmomqmrmsmtmwmynandnengninknlnmnnnpnrnyocodofokomonooopoqotouowpapbpdpepfpgpjplpmpopppqprpsptpvpxpyqaqcqdqeqfqjqkqlqnqrqsqtqwqxqyrarcrdrergrirkrnrprrrurwrysasdsgshsisjslspsqssstsvsxsytatetftgthtktltmtntptqtutwuaubucueuiujukulumunuouqurvbvdvfvhvlvpvqvrvvvxvywawbwcwewfwgwiwjwlwmwrwuwvwyxaxbxcxdxhxkxlxmxpxqxsxuxvxw-aaabadaeagaiajakalanaoaparasatavawaxbabdbfbhbibkbmbobpbubxcacbcdcjclcmcncpcrcscucvcwcxdbdcdddgdidkdldndpdqdrdudvdweaebefeheiejeneoetevewfafdfefhfjflfmfnfpfqfrfsfvfxgdgfgigkgngogpgqgtgvgwgxhahchehfhghkhmhphqhrhvhwhxiaibifijiminioiqitivjcjdjfjgjijmjnjojpjrjvkakekhkjklkmknkqkxldlelhljlklmlnlolrlsltlulxmbmcmdmfmhmimlmmmomtmwnbnenfngninjnknonqnunvnxoaobofogohoioqorosouovoxpdpgphpipkptpwpxqbqgqiqmqnqpqqqsqtquqvrbrcrfrgrjrmrorprvsasbsfshsksmsnsosrssstsuswtatbtdtgtjtmtntotqtrtttvucueufuiuourusuvuwuxvbvdvfvgvhvkvlvrvsvtvvvxwcwfwjwkwmwnwowqwswtwvwwxbxexgxhxixkxmxnxqxrxtxwxxyaycydyeyfygyiyjymynyoypyqysytyuywyx"
+        , "easy", 1)
+)
