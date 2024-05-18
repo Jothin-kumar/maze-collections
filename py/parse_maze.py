@@ -85,4 +85,4 @@ def parse(data: str, level: str, maze_num) -> bool:
     return dumps({
         "maze-data": data_original,
         "rating": rating
-    })
+    }, indent=4)
