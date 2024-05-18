@@ -1,4 +1,4 @@
-from os import mkdir, path
+from os import mkdir, path, remove
 from json import loads
 from parse_maze import parse as parse_maze
 
@@ -7,6 +7,8 @@ if not path.exists('maze'):
     mkdir('maze/easy')
     mkdir('maze/medium')
     mkdir('maze/hard')
+if path.exists('stats.txt'):
+    remove('stats.txt')
 
 for lvl in ['easy', 'medium', 'hard']:
     datas = []
