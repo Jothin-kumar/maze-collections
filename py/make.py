@@ -19,7 +19,7 @@ for lvl in ['easy', 'medium', 'hard']:
                 data = parse_maze(line, lvl, i+1)
                 datas.append(loads(data))
                 f2.write(data)
-            print(f"maze/{lvl}/{i+1}.json completed")
+            print(f"{lvl} level -> {i+1} / {len(lines)} completed")
     ratings = [d["rating"] for d in datas]
     min_rating = min(ratings)
     max_rating = max(ratings)
