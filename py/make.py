@@ -1,5 +1,6 @@
 from os import mkdir, path, remove
 from json import loads
+from time import strftime
 from parse_maze import parse as parse_maze
 
 if not path.exists('maze'):
@@ -10,9 +11,11 @@ if not path.exists('maze'):
 if path.exists('stats.txt'):
     remove('stats.txt')
 
+total_maze_count = 0
+
 for lvl in ['easy', 'medium', 'hard']:
     datas = []
-    print("============================================================\n")
+    print("*****=====*****\n")
     print(f"Starting level - {lvl}")
     with open(f"maze-data/{lvl}.txt") as f:
         lines = [s.removesuffix("\n") for s in f.readlines()]
@@ -31,19 +34,28 @@ for lvl in ['easy', 'medium', 'hard']:
     ratings = [d["rating"] for d in datas]
     min_rating = min(ratings)
     max_rating = max(ratings)
+    total_maze_count += len(lines)
     with open(f"stats.txt", "a+") as f:
         f.write(f"""
 Level: {lvl}
-Mazes count: {len(lines)}
-Average rating: {round(sum(ratings)/len(ratings), 2)}
-Minimum rating: {min_rating} <Maze(s) with this rating: {', '.join([f"/{lvl}/@{i+1}" for i, r in enumerate(ratings) if r == min_rating])}>
-Maximum rating: {max_rating} <Maze(s) with this rating: {', '.join([f"/{lvl}/@{i+1}" for i, r in enumerate(ratings) if r == max_rating])}>
+ -> Mazes count: {len(lines)}
+ -> Average rating: {round(sum(ratings)/len(ratings), 2)}
+ -> Minimum rating: {str(min_rating).zfill(10)}          Maze(s) with this rating: {', '.join([str(i+1) for i, r in enumerate(ratings) if r == min_rating])}>
+ -> Maximum rating: {str(max_rating).zfill(10)}          Maze(s) with this rating: {', '.join([str(i+1) for i, r in enumerate(ratings) if r == max_rating])}>
 """)
     print(f"Wrote stats for level - {lvl}")
-    
+
     with open(f"maze/{lvl}/ratings.txt", "w") as f:
         f.write("\n".join(map(str, ratings)))
     print(f"Wrote ratings for level - {lvl}")
 
-    print(f"Level - {lvl} completed", end="============================================================\n")
+    print(f"Level - {lvl} completed", end="*****=====*****\n")
+
 print("All mazes completed")
+
+with open("stats.txt", "a+") as f:
+    f.write(f"""
+
+Total maze count: {total_maze_count}
+Last updated: {strftime("%d %B %Y (%A) | %I:%M:%S %p [GMT%z]")}
+""")
