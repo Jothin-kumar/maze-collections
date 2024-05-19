@@ -27,6 +27,7 @@ jobs:
           projectName: maze-collections
           directory: build-output
           branch: main
+          wranglerVersion: '3'
 
       - name: Git Commit
         continue-on-error: true
