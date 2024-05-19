@@ -39,17 +39,17 @@ for lvl in ['easy', 'medium', 'hard']:
         f.write(f"""
 Level: {lvl}
  -> Mazes count: {len(lines)}
- -> Average rating: {round(sum(ratings)/len(ratings), 2)}
- -> Minimum rating: {str(min_rating).zfill(10)}          Maze(s) with this rating: {', '.join([str(i+1) for i, r in enumerate(ratings) if r == min_rating])}>
- -> Maximum rating: {str(max_rating).zfill(10)}          Maze(s) with this rating: {', '.join([str(i+1) for i, r in enumerate(ratings) if r == max_rating])}>
+ -> Average rating: {str(round(sum(ratings)/len(ratings), 2)).rjust(10)}
+ -> Minimum rating: {str(min_rating).rjust(10)}          Maze(s) with this rating: {', '.join([str(i+1) for i, r in enumerate(ratings) if r == min_rating])}
+ -> Maximum rating: {str(max_rating).rjust(10)}          Maze(s) with this rating: {', '.join([str(i+1) for i, r in enumerate(ratings) if r == max_rating])}
 """)
-    print(f"Wrote stats for level - {lvl}")
+    print(f"Wrote stats for {lvl} level")
 
     with open(f"maze/{lvl}/ratings.txt", "w") as f:
         f.write("\n".join(map(str, ratings)))
-    print(f"Wrote ratings for level - {lvl}")
+    print(f"Wrote ratings for {lvl} level")
 
-    print(f"Level - {lvl} completed", end="\n"*2)
+    print(f"{lvl} level completed", end="\n"*2)
 
 print("All mazes completed")
 
@@ -61,5 +61,7 @@ Total maze count: {total_maze_count}
 Last updated: {strftime("%d %B %Y (%A) | %I:%M:%S %p [GMT%z]")}
 """)
 
+print("\n********************\n\nStats:")
 with open("stats.txt", "r") as f:
     print(f.read())
+print("********************\n")
