@@ -15,7 +15,7 @@ total_maze_count = 0
 
 for lvl in ['easy', 'medium', 'hard']:
     datas = []
-    print("*****=====*****\n")
+    print("********************\n")
     print(f"Starting level - {lvl}")
     with open(f"maze-data/{lvl}.txt") as f:
         lines = [s.removesuffix("\n") for s in f.readlines()]
@@ -49,13 +49,17 @@ Level: {lvl}
         f.write("\n".join(map(str, ratings)))
     print(f"Wrote ratings for level - {lvl}")
 
-    print(f"Level - {lvl} completed", end="*****=====*****\n")
+    print(f"Level - {lvl} completed", end="\n"*2)
 
 print("All mazes completed")
 
-with open("stats.txt", "a+") as f:
+
+with open("stats.txt", "a") as f:
     f.write(f"""
 
 Total maze count: {total_maze_count}
 Last updated: {strftime("%d %B %Y (%A) | %I:%M:%S %p [GMT%z]")}
 """)
+
+with open("stats.txt", "r") as f:
+    print(f.read())
