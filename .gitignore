@@ -3,3 +3,5 @@ max.txt
 build-output
 __pycache__
 build
+.wrangler
+node_modules
