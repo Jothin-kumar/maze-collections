@@ -51,7 +51,11 @@
                     document.getElementById('loading').style.display = 'none';
                 }
             }
-            main()
+            main().catch(() => {
+                document.getElementById('invalid-maze').style.display = 'block';
+                document.getElementById('invalid-maze').innerText = 'Invalid url';
+                document.getElementById('loading').style.display = 'none';
+            });
         </script>
     </body>
 </html>
