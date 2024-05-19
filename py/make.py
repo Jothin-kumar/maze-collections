@@ -1,6 +1,7 @@
 from os import mkdir, path, remove
 from json import loads
-from time import strftime
+from pytz import timezone
+from datetime import datetime
 from parse_maze import parse as parse_maze
 
 if not path.exists('maze'):
@@ -58,7 +59,7 @@ with open("stats.txt", "a") as f:
     f.write(f"""
 
 Total maze count: {total_maze_count}
-Last updated: {strftime("%d %B %Y (%A) | %I:%M:%S %p [GMT%z]")}
+Last updated: {datetime.now(timezone("Asia/Kolkata")).strftime("%d %B %Y (%A) | %I:%M:%S %p [IST]")}
 """)
 
 print("\n********************\n\nStats:")
