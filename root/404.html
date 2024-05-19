@@ -38,14 +38,9 @@
         <script>
             async function main() {
                 const path = window.location.pathname.split('/');
-                if (path[1].startsWith('@')) {
-                    const level = "medium";
-                    const id = path[1].substring(1);
-                }
-                else {
-                    const level = path[1];
-                    const id = path[2].substring(1);
-                }
+                const condition = path[1].startsWith('@')
+                const level = condition ? "medium" : path[1];
+                const id = condition ? path[1].substring(1) : path[2].substring(1);
                 const r = await fetch(`/maze/${level}/${id}.json`);
                 try {
                     const shareSlug = level === "medium" ? `@${id}`: `${level}/@${id}`;
