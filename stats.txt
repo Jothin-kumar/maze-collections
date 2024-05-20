@@ -1,22 +1,22 @@
 
 Level: easy
  -> Mazes count: 70
- -> Average rating:   34814.29
- -> Minimum rating:      22000          Maze(s) with this rating: 1
- -> Maximum rating:      49000          Maze(s) with this rating: 30
+ -> Average rating:   33839.07
+ -> Minimum rating:      13216          Maze(s) with this rating: 65
+ -> Maximum rating:      43929          Maze(s) with this rating: 64
 
 Level: medium
  -> Mazes count: 69
- -> Average rating:   78655.59
- -> Minimum rating:      61690          Maze(s) with this rating: 47
- -> Maximum rating:      91731          Maze(s) with this rating: 15
+ -> Average rating:   76420.97
+ -> Minimum rating:      47740          Maze(s) with this rating: 38
+ -> Maximum rating:      92612          Maze(s) with this rating: 63
 
 Level: hard
  -> Mazes count: 69
- -> Average rating:    99645.2
- -> Minimum rating:      79518          Maze(s) with this rating: 69
- -> Maximum rating:     122811          Maze(s) with this rating: 55
+ -> Average rating:    99053.8
+ -> Minimum rating:      76306          Maze(s) with this rating: 5
+ -> Maximum rating:     123743          Maze(s) with this rating: 55
 
 
 Total maze count: 208
-Last updated: 19 May 2024 (Sunday) | 01:52:23 PM [IST]
+Last updated: 20 May 2024 (Monday) | 02:38:52 PM [IST]
