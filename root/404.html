@@ -12,20 +12,27 @@
                 transform: translate(-50%, -50%);
                 color: white;
                 text-align: center;
-                font-size: large;
+                font-size: xx-large;
                 font-family: 'Courier New', Courier, monospace;
             }
             #invalid-maze {
                 color: red;
                 display: none;
             }
-            #main > a {
+            #back-to-collection {
                 color: white;
                 text-decoration: none;
                 margin-top: 10px;
                 border: olive 2px solid;
                 padding: 10px;
                 border-radius: 10px;
+                transition: background-color .69s, color .5s;
+
+                display: none;
+            }
+            #back-to-collection:hover {
+                background-color: olive;
+                color: black;
             }
         </style>
     </head>
@@ -33,7 +40,7 @@
         <div id="main">
             <p id="invalid-maze">Invalid maze ID</p>
             <p id="loading">Loading, please wait</p>
-            <a href="https://mazes.jothin.tech">Back to the collection</a>
+            <a href="https://mazes.jothin.tech" id="back-to-collection">Back to the collection</a>
         </div>
         <script>
             async function main() {
@@ -49,12 +56,14 @@
                 catch (e) {
                     document.getElementById('invalid-maze').style.display = 'block';
                     document.getElementById('loading').style.display = 'none';
+                    document.getElementById('back-to-collection').style.display = 'block';
                 }
             }
             main().catch(() => {
                 document.getElementById('invalid-maze').style.display = 'block';
                 document.getElementById('invalid-maze').innerText = 'Invalid url';
                 document.getElementById('loading').style.display = 'none';
+                document.getElementById('back-to-collection').style.display = 'block';
             });
         </script>
     </body>
