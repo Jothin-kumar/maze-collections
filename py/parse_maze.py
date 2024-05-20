@@ -21,9 +21,9 @@ def parse(data: str, level: str, maze_num) -> bool:
         raise ValueError(error_msg_prefix, "Invalid character(s) found")
 
     path = [
-        decodeToCoords(data[2:4]),  # End
-        decodeToCoords(data[0:2]),  # Start
+        decodeToCoords(data[0:2])  # Start
     ]
+    end = decodeToCoords(data[2:4])
 
     data = data[4:].split("-")
     if not all([len(d) % 2 == 0 for d in data]):
@@ -31,7 +31,7 @@ def parse(data: str, level: str, maze_num) -> bool:
 
     d = data[0]
     for i in range(0, len(d), 2):
-        path.insert(1, decodeToCoords(d[i:i+2]))
+        path.append(decodeToCoords(d[i:i+2]))
     for i in range(len(path)-1):
         if abs(path[i][0] - path[i+1][0]) + abs(path[i][1] - path[i+1][1]) != 1:
             raise ValueError(error_msg_prefix, "Lack of continuity in correct path")
@@ -62,7 +62,7 @@ def parse(data: str, level: str, maze_num) -> bool:
         connectables = []
         for sq in prev_connectables:
             for neighbour_sq in get_movable_neighbors(*sq):
-                if neighbour_sq not in connectables and neighbour_sq not in accepted_squares:
+                if neighbour_sq not in connectables + accepted_squares and neighbour_sq != end:
                     connectables.append(neighbour_sq)
         accepted_squares.extend(connectables)
         prev_connectables.clear()
