@@ -46,7 +46,7 @@
             async function main() {
                 const path = window.location.pathname.split('/');
                 const condition = path[1].startsWith('@')
-                const level = condition ? "medium" : path[1];
+                const level = condition ? "easy" : path[1];
                 const id = condition ? path[1].substring(1) : path[2].substring(1);
                 const r = await fetch(`/maze/${level}/${id}.json`);
                 try {
