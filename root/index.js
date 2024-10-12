@@ -1,5 +1,5 @@
 const usp = new URLSearchParams(window.location.search);
-const level = usp.get('level') || 'medium';
+const level = usp.get('level') || 'easy';
 
 async function bodyLoaded() {
     document.getElementById('lvl-' + level).classList.add('current-lvl');
@@ -26,7 +26,7 @@ function newMaze(mazeId, rating) {
     const elem = document.createElement('a');
     elem.className = 'maze';
     elem.innerHTML = `${mazeId.toString().padStart(3, '0')}<br><span class="rating">${rating}</span>`;
-    elem.href = level === "medium" ? `@${mazeId}`: `/${level}/@${mazeId}`;
+    elem.href = level === "easy" ? `@${mazeId}`: `/${level}/@${mazeId}`;
     return elem;
 }
 
