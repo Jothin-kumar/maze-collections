@@ -10,7 +10,7 @@
     <meta name="og:description" content="A curated list of mazes, for A-Maze">
     <meta name="og:image" content="https://jothin.tech/favicon.webp">
 </head>
-<body onload="bodyLoaded(); tooltipBodyLoaded();">
+<body onload="bodyReload()">
     <ul id="lvl-chooser">
         <li onclick="toLevel(this)" id="lvl-easy">Easy</li>
         <li onclick="toLevel(this)" id="lvl-medium">Medium</li>
@@ -19,6 +19,7 @@
     <div id="main">
         <p id="main-msg">Loading... Please Wait</p>
         <p id="no-script-msg" style="display: none;">Enable JavaScript and reload the page</p>
+        <div id="mazes-list"></div>
         <noscript>
             <style>
                 #main-msg {

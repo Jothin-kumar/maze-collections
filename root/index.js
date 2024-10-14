@@ -1,9 +1,29 @@
-const usp = new URLSearchParams(window.location.search);
-const level = usp.get('level') || 'easy';
+class CookieManager {
+    constructor() {
+        this.cookies = {};
+        document.cookie.split("; ").forEach(cookie => {
+            const [name, value] = cookie.split("=");
+            this.cookies[name] = value;
+        });
+    }
+    set(name, value) {
+        this.cookies[name] = value;
+        document.cookie = `${name}=${value}`;
+    }
+    get(name) {
+        return this.cookies[name];
+    }
+}
+const usp = new CookieManager();
+window.level = usp.get('level') || 'easy';
 
-async function bodyLoaded() {
+async function bodyReload() {
+    document.getElementById('lvl-easy').classList.remove('current-lvl');
+    document.getElementById('lvl-medium').classList.remove('current-lvl');
+    document.getElementById('lvl-hard').classList.remove('current-lvl');
     document.getElementById('lvl-' + level).classList.add('current-lvl');
-    const main = document.getElementById('main');
+    const mazesList = document.getElementById('mazes-list');
+    mazesList.innerHTML = '';
     const msgElem = document.getElementById('main-msg');
     const ratingsRequest = await fetch(`https://mazes.jothin.tech/maze/${level}/ratings.txt`);  // For compatibility with A-Maze integration.
     if (!ratingsRequest.ok) {
@@ -17,7 +37,7 @@ async function bodyLoaded() {
         mazes.push([newMaze(i+1, ratings[i]), i+1, ratings[i]]) // Format: [mazeElem, id, rating]
     }
     mazes.sort((a, b) => a[2] - b[2]);
-    mazes.forEach(maze => main.appendChild(maze[0]));
+    mazes.forEach(maze => mazesList.appendChild(maze[0]));
 
     msgElem.style.display = 'none';
 }
@@ -33,5 +53,6 @@ function newMaze(mazeId, rating) {
 function toLevel(elem) {
     const toLevel = elem.id === "lvl-easy" ? "easy" : elem.id === "lvl-medium" ? "medium" : "hard";
     usp.set('level', toLevel);
-    window.location.search = usp.toString();
+    window.level = toLevel;
+    bodyReload()
 }
