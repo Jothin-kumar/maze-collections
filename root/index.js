@@ -5,7 +5,7 @@ async function bodyLoaded() {
     document.getElementById('lvl-' + level).classList.add('current-lvl');
     const main = document.getElementById('main');
     const msgElem = document.getElementById('main-msg');
-    const ratingsRequest = await fetch(`/maze/${level}/ratings.txt`);
+    const ratingsRequest = await fetch(`https://mazes.jothin.tech/maze/${level}/ratings.txt`);  // For compatibility with A-Maze integration.
     if (!ratingsRequest.ok) {
         msgElem.innerText = 'Failed to load mazes';
         msgElem.style.color = 'red';
