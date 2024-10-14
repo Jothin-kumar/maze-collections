@@ -46,7 +46,7 @@ function newMaze(mazeId, rating) {
     const elem = document.createElement('a');
     elem.className = 'maze';
     elem.innerHTML = `${mazeId.toString().padStart(3, '0')}<br><span class="rating">${rating}</span>`;
-    elem.href = level === "easy" ? `@${mazeId}`: `/${level}/@${mazeId}`;
+    elem.onclick = () => window.mazeClickCallback(level, mazeId);
     return elem;
 }
 
@@ -55,4 +55,8 @@ function toLevel(elem) {
     usp.set('level', toLevel);
     window.level = toLevel;
     bodyReload()
+}
+
+function configureMazeClickCallback(f) {
+    window.mazeClickCallback = f
 }
