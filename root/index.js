@@ -46,7 +46,10 @@ function newMaze(mazeId, rating) {
     const elem = document.createElement('a');
     elem.className = 'maze';
     elem.innerHTML = `${mazeId.toString().padStart(3, '0')}<br><span class="rating">${rating}</span>`;
-    elem.onclick = () => window.mazeClickCallback(level, mazeId);
+    elem.onclick = () => {
+        elem.classList.add('maze-visited');
+        window.mazeClickCallback(level, mazeId)
+    };
     return elem;
 }
 
