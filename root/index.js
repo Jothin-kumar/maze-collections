@@ -1,4 +1,4 @@
-class CookieManager {
+class cookieManager {
     constructor() {
         this.cookies = {};
         document.cookie.split("; ").forEach(cookie => {
@@ -14,7 +14,7 @@ class CookieManager {
         return this.cookies[name];
     }
 }
-const usp = new CookieManager();
+const usp = new cookieManager();
 window.level = usp.get('level') || 'easy';
 
 async function bodyReload() {
