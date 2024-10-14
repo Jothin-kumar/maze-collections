@@ -53,7 +53,7 @@ body {
     justify-content: center;
     scrollbar-width: none;
 }
-#main::-webkit-scrollbar {
+#main-maze-collections::-webkit-scrollbar {
     display: none;
 }
 .maze {
