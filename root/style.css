@@ -41,7 +41,7 @@ body {
     border: greenyellow 1px solid !important;
     color: black;
 }
-#main {
+#main-maze-collections {
     border: goldenrod 2px solid;
     border-radius: 10px;
     width: 90dvw;
