@@ -28,3 +28,7 @@ printf "stats.txt ✅\n\n"
 
 cp root/robots.txt build-output/robots.txt
 printf "robots.txt ✅\n\n"
+
+cp root/index.js build-output/index.js
+cp root/style.css build-output/style.css
+printf "index.js, style.css ✅\n\n"
