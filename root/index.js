@@ -18,6 +18,7 @@ const usp = new cookieManager();
 window.level = usp.get('level') || 'easy';
 
 async function bodyReload() {
+    const msgElem = document.getElementById('main-msg');
     msgElem.style.display = 'block';
     msgElem.innerText = 'Loading... Please Wait';
     document.getElementById('lvl-easy').classList.remove('current-lvl');
@@ -26,7 +27,6 @@ async function bodyReload() {
     document.getElementById('lvl-' + level).classList.add('current-lvl');
     const mazesList = document.getElementById('mazes-list');
     mazesList.innerHTML = '';
-    const msgElem = document.getElementById('main-msg');
     const ratingsRequest = await fetch(`https://mazes.jothin.tech/maze/${level}/ratings.txt`);  // For compatibility with A-Maze integration.
     if (!ratingsRequest.ok) {
         msgElem.innerText = 'Failed to load mazes';
