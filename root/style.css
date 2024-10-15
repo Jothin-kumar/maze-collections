@@ -71,7 +71,7 @@ body {
     transition: scale .5s, background-color .5s, border .5s, color .5s;
     text-align: center;
 }
-.maze.maze-visited, .maze:visited {
+.maze.maze-visited {
     background-color: darkgreen;
     border: darkgreen 1px solid;
 }
@@ -81,7 +81,7 @@ body {
     font-weight: bold;
     scale: 1.1;
 }
-.maze.maze-visited:hover, .maze:visited:hover {
+.maze.maze-visited:hover {
     background-color: green;
 }
 .rating {

@@ -49,14 +49,21 @@ async function bodyReload() {
     mazes.forEach(maze => mazesList.appendChild(maze[0]));
 
     msgElem.style.display = 'none';
+
+    usp.get(level + "-lvl-visited-maze-collection")?.split('.').forEach(mazeId => {
+        document.getElementById('maze-' + mazeId)?.classList.add('maze-visited');
+    })
 }
 
 function newMaze(mazeId, rating) {
     const elem = document.createElement('a');
     elem.className = 'maze';
+    elem.id = 'maze-' + mazeId;
     elem.innerHTML = `${mazeId.toString().padStart(3, '0')}<br><span class="rating">${rating}</span>`;
     elem.onclick = () => {
-        elem.classList.add('maze-visited');
+        elem.classList.add('maze-visited')
+        const k = level + "-lvl-visited-maze-collection"
+        if (!(usp.get(k) || '')?.split('.').includes(`${mazeId}`)) usp.set(k, (usp.get(k) || '') + '.' + mazeId)
         window.mazeClickCallback(level, mazeId)
     };
     return elem;
