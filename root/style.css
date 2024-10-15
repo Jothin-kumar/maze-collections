@@ -81,7 +81,7 @@ body {
     font-weight: bold;
     scale: 1.1;
 }
-.maze:visited:hover {
+.maze.maze-visited:hover, .maze:visited:hover {
     background-color: green;
 }
 .rating {
