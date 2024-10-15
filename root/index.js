@@ -18,6 +18,8 @@ const usp = new cookieManager();
 window.level = usp.get('level') || 'easy';
 
 async function bodyReload() {
+    msgElem.style.display = 'block';
+    msgElem.innerText = 'Loading... Please Wait';
     document.getElementById('lvl-easy').classList.remove('current-lvl');
     document.getElementById('lvl-medium').classList.remove('current-lvl');
     document.getElementById('lvl-hard').classList.remove('current-lvl');
