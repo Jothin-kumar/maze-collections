@@ -27,7 +27,13 @@ async function bodyReload() {
     document.getElementById('lvl-' + level).classList.add('current-lvl');
     const mazesList = document.getElementById('mazes-list');
     mazesList.innerHTML = '';
-    const ratingsRequest = await fetch(`https://mazes.jothin.tech/maze/${level}/ratings.txt`);  // For compatibility with A-Maze integration.
+    try {
+        window.ratingsRequest = await fetch(`https://mazes.jothin.tech/maze/${level}/ratings.txt`);  // For compatibility with A-Maze integration.
+    } catch (e) {
+        msgElem.innerText = 'Failed to load mazes';
+        msgElem.style.color = 'red';
+        return;
+    }
     if (!ratingsRequest.ok) {
         msgElem.innerText = 'Failed to load mazes';
         msgElem.style.color = 'red';
