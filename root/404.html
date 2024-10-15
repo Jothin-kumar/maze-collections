@@ -48,10 +48,8 @@
                 const condition = path[1].startsWith('@')
                 const level = condition ? "easy" : path[1];
                 const id = condition ? path[1].substring(1) : path[2].substring(1);
-                const r = await fetch(`/maze/${level}/${id}.json`);
                 try {
-                    const shareSlug = level === "easy" ? `@${id}`: `${level}/@${id}`;
-                    window.location.href = `https://a-maze.jothin.tech/2d/?level=${level}&maze-data=${(await r.json())["maze-data"]}&share-url=mazes.jothin.tech/${shareSlug}`;
+                    window.location.href = `https://a-maze.jothin.tech/load-from-maze-collection?level=${level}&id=${id}`;
                 }
                 catch (e) {
                     document.getElementById('invalid-maze').style.display = 'block';
