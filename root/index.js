@@ -20,6 +20,7 @@ window.level = usp.get('level') || 'easy';
 async function bodyReload() {
     const msgElem = document.getElementById('main-msg');
     msgElem.style.display = 'block';
+    msgElem.style.color = 'white';
     msgElem.innerText = 'Loading... Please Wait';
     document.getElementById('lvl-easy').classList.remove('current-lvl');
     document.getElementById('lvl-medium').classList.remove('current-lvl');
