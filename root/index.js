@@ -8,7 +8,7 @@ class cookieManager {
     }
     set(name, value) {
         this.cookies[name] = value;
-        document.cookie = `${name}=${value}; max-age=31536000`;
+        document.cookie = `${name}=${value}; path=/; max-age=31536000`;
     }
     get(name) {
         return this.cookies[name];
